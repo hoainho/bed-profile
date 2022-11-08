@@ -1,1 +1,9 @@
 // app global css in SCSS form
+@import "./mixin.scss";
+@font-face {
+  font-family: raleway;
+  src: url(../assets/fonts/Raleway-Regular.ttf);
+}
+* {
+  font-family: raleway, "Roboto";
+}
