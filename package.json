@@ -6,6 +6,7 @@
   "author": "NhoNh",
   "private": true,
   "scripts": {
+    "dev":"quasar dev",
     "lint": "eslint --ext .js,.vue ./",
     "format": "prettier --write \"**/*.{js,vue,scss,html,md,json}\" --ignore-path .gitignore",
     "test": "echo \"No test specified\" && exit 0"
@@ -17,6 +18,7 @@
     "vue": "^3.0.0",
     "vue-i18n": "^9.0.0",
     "vue-router": "^4.0.0",
+    "vue-writer": "^1.2.0",
     "vuex": "^4.0.1"
   },
   "devDependencies": {

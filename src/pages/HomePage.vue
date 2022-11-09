@@ -1,9 +1,9 @@
 <script>
 import { defineComponent } from "vue";
 import DividerHero from "components/BackgroundHero/DividerHero.vue";
-
+import TyperComponent from "components/Typer/TyperComponent.vue";
 export default defineComponent({
-  components: { DividerHero },
+  components: { DividerHero, TyperComponent },
   name: "HomePage",
 });
 </script>
@@ -28,10 +28,15 @@ export default defineComponent({
         >
           MILO
         </h1>
-        <h5 class="text-2xl text-white w-full text-left font-bold block">
-          I'm a
-          <span class="text-primary text-bold">Web designer</span>
-        </h5>
+        <div class="flex justify-left">
+          <h5 class="text-2xl text-left font-bold text-white q-mr-sm">I'm a</h5>
+          <h5 class="text-2xl font-bold">
+            <typer-component />
+          </h5>
+        </div>
+        <q-btn color="primary" no-caps style="width: 100px" class="q-mt-xl">
+          <h6 class="text-white text-bold">Hire Me</h6>
+        </q-btn>
       </div>
     </div>
     <divider-hero class="absolute fixed-bottom" />

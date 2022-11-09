@@ -10,8 +10,10 @@
       "i18n/*": ["src/i18n/*"],
       "page/s*": ["src/page/s*"],
       "router/*": ["src/router/*"],
-      "store/*": ["src/store/*"],
+      "store/*": ["src/store/*"]
     }
   },
-  "exclude": ["dist", ".quasar", "node_modules", ".vscode"]
+  "exclude": ["dist", ".quasar", "node_modules", ".vscode"],
+  "noImplicitAny": false,
+  "allowJs": true
 }

@@ -1,6 +1,5 @@
 import { boot } from "quasar/wrappers";
 import { createI18n } from "vue-i18n";
-import { VueTyperPlugin } from "vue-typer";
 import messages from "src/i18n";
 
 export default boot(({ app }) => {
