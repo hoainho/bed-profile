@@ -2,14 +2,15 @@
 import { defineComponent } from "vue";
 import DividerHero from "components/BackgroundHero/DividerHero.vue";
 import TyperComponent from "components/Typer/TyperComponent.vue";
+import AboutPage from "./AboutPage.vue";
 export default defineComponent({
-  components: { DividerHero, TyperComponent },
+  components: { DividerHero, TyperComponent, AboutPage },
   name: "HomePage",
 });
 </script>
 
 <template>
-  <div class="flex items-center">
+  <div class="flex items-center relative">
     <q-parallax
       src="src/assets/images/bg-hero.JPG"
       :height="1200"
@@ -24,7 +25,7 @@ export default defineComponent({
       <div class="flex flex-col">
         <h5 class="text-2xl text-white w-full text-left font-bold">Hi! I'm</h5>
         <h1
-          class="text-9xl text-white text-weight-bolder text-uppercase font-extrabold tracking-wider"
+          class="text-9xl text-white text-weight-bolder text-uppercase font-extrabold tracking-lg"
         >
           MILO
         </h1>
@@ -40,5 +41,8 @@ export default defineComponent({
       </div>
     </div>
     <divider-hero class="absolute fixed-bottom" />
+
+    <!-- About Section -->
   </div>
+  <about-page />
 </template>
