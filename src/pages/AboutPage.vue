@@ -1,70 +1,68 @@
 <template>
   <div class="q-mt-2xl container flex items-center justify-center">
     <title-component title="About Me" />
+
     <div class="row">
       <div class="col-5">
         <q-img
           src="src/assets/images/IMG_6634.JPG"
           spinner-color="white"
-          style="height: 450px; max-width: 350px"
-          class="about-image relative overflow-visible rounded-lg"
+          style="height: 490px; max-width: 410px"
+          class="about-image relative overflow-visible rounded-lg brightness-50"
         />
       </div>
       <div class="col-7">
-        <q-card dark bordered class="bg-grey-9 my-card">
-          <q-card-section>
-            <h2 class="text-lg text-primary">I'm Milo</h2>
-            <h1 class="text-2xl text-white font-bold">
-              I'm Creative Ui/Ux Designer And Web Developer
-            </h1>
-          </q-card-section>
-
-          <q-separator dark inset />
-
-          <q-card-section>
+        <h2 class="text-lg font-bold text-primary">I'm Milo</h2>
+        <h1 class="text-2xl text-white font-bold pb-5">
+          I'm Creative Ui/Ux Designer And Web Developer
+        </h1>
+        <div class="my-5">
+          <p class="text-white">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet,
-            consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua.
-          </q-card-section>
-          <q-img src="src/assets/images/IMG_6635.JPG" />
+            aliquip ex ea commodo consequat.
+          </p>
+          <br />
+          <p class="text-white">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
 
-          <q-card-section>
-            <div class="text-overline text-orange-9">Overline</div>
-            <div class="text-h5 q-mt-sm q-mb-xs">Title</div>
-            <div class="text-caption text-grey">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </div>
-          </q-card-section>
-
-          <q-card-actions>
-            <q-btn flat color="dark" label="Share" />
-            <q-btn flat color="primary" label="Book" />
-
-            <q-space />
-
-            <q-btn
-              color="grey"
-              round
-              flat
-              dense
-              :icon="expanded ? 'keyboard_arrow_up' : 'keyboard_arrow_down'"
-              @click="expanded = !expanded"
-            />
-          </q-card-actions>
-
-          <q-slide-transition>
-            <div v-show="expanded">
-              <q-separator />
-              <q-card-section class="text-subitle2">
-                {{ lorem }}
-              </q-card-section>
-            </div>
-          </q-slide-transition>
-        </q-card>
+        <div
+          class="py-10 px-5 box-shadow w-full h-auto shadow-bg rounded relative"
+        >
+          <ul class="row">
+            <li
+              class="w-1/2 relative my-2"
+              v-for="(item, index) in basicInfo"
+              :key="index"
+            >
+              <diamond-bulleted :isCenter="false" />
+              <div class="row pl-5">
+                <p class="text-white font-bold pr-2">
+                  {{ `${item.name}: ` }}
+                </p>
+                <p class="text-white">{{ `${item.value}` }}</p>
+              </div>
+            </li>
+          </ul>
+          <ul
+            class="flex flex-col justify-center items-center absolute top-1/2 right-0 translate-x-2/4 translate-y-50-"
+          >
+            <li
+              class="rounded-full flex justify-center items-center p-1 bg-zinc-900 m-1 w-7 h-7 cursor-pointer"
+              :class="item.color ? item.color : ''"
+              v-for="(item, index) in socialLinks"
+              :key="index"
+            >
+              <router-link :to="item.link"
+                ><q-icon :name="item.icon" color="white"
+              /></router-link>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -72,8 +70,69 @@
 
 <script>
 import TitleComponent from "src/components/Title/TitleComponent.vue";
+import DiamondBulleted from "src/components/Bulleted/DiamondBulleted.vue";
+import { reactive } from "vue";
+import {
+  fabFacebookF,
+  fabGooglePlusG,
+  fabInstagram,
+  fabSkype,
+  fabYoutube,
+  fasPhone,
+} from "@quasar/extras/fontawesome-v6";
 export default {
-  components: { TitleComponent },
+  components: { TitleComponent, DiamondBulleted },
+  setup() {
+    const basicInfo = reactive([
+      {
+        name: "Full Name",
+        value: "Milo",
+      },
+      {
+        name: "Birthday",
+        value: "21 February 2000",
+      },
+      {
+        name: "Address",
+        value: "Ho Chi Minh, VietNam",
+      },
+      {
+        name: "Email",
+        value: "milo@gmail.com",
+      },
+      {
+        name: "Phone",
+        value: "(84) 090-115-0222",
+      },
+      {
+        name: "Nationality",
+        value: "VietNam",
+      },
+    ]);
+    const socialLinks = reactive([
+      {
+        icon: fabFacebookF,
+        link: "/",
+        color: "hover:bg-facebook",
+      },
+      {
+        icon: fabInstagram,
+        link: "/",
+        color: "hover:bg-instagram",
+      },
+      {
+        icon: fabSkype,
+        link: "/",
+        color: "hover:bg-skype",
+      },
+      {
+        icon: fabGooglePlusG,
+        link: "/",
+        color: "hover:bg-google",
+      },
+    ]);
+    return { basicInfo, socialLinks };
+  },
 };
 </script>
 
