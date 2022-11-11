@@ -4,14 +4,17 @@
       class="q-py-lg relative title-section text-center text-white text-2xl text-bold uppercase w-fit tracking-sm"
     >
       {{ title }}
-      <span></span>
+      <diamond-bulleted :isCenter="true" />
     </h1>
   </div>
 </template>
 
 <script>
+import DiamondBulleted from "../Bulleted/DiamondBulleted.vue";
+
 export default {
   props: ["title"],
+  components: { DiamondBulleted },
 };
 </script>
 
@@ -34,7 +37,7 @@ export default {
   right: 0;
   bottom: 0;
 }
-.title-section span::after {
+/* .title-section span::after {
   content: "";
   position: absolute;
   background-color: var(--q-primary);
@@ -44,5 +47,5 @@ export default {
   left: 50%;
   bottom: 0;
   box-shadow: 0px 0px 0px 4px #191919;
-}
+} */
 </style>
